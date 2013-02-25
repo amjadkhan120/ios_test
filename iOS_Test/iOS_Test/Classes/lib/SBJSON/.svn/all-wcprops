@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/DigiMagiPad/!svn/ver/18/trunk/Publisher_App/Publisher_App/OE_library/LinkLibraries/SBJSON
+END
+JSON.h
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/DigiMagiPad/!svn/ver/18/trunk/Publisher_App/Publisher_App/OE_library/LinkLibraries/SBJSON/JSON.h
+END
+SBJsonBase.h
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/DigiMagiPad/!svn/ver/18/trunk/Publisher_App/Publisher_App/OE_library/LinkLibraries/SBJSON/SBJsonBase.h
+END
+SBJsonParser.h
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/DigiMagiPad/!svn/ver/18/trunk/Publisher_App/Publisher_App/OE_library/LinkLibraries/SBJSON/SBJsonParser.h
+END
+SBJsonWriter.h
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/DigiMagiPad/!svn/ver/18/trunk/Publisher_App/Publisher_App/OE_library/LinkLibraries/SBJSON/SBJsonWriter.h
+END
+SBJSON.h
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/DigiMagiPad/!svn/ver/18/trunk/Publisher_App/Publisher_App/OE_library/LinkLibraries/SBJSON/SBJSON.h
+END
+SBJsonBase.m
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/DigiMagiPad/!svn/ver/18/trunk/Publisher_App/Publisher_App/OE_library/LinkLibraries/SBJSON/SBJsonBase.m
+END
+SBJsonParser.m
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/DigiMagiPad/!svn/ver/18/trunk/Publisher_App/Publisher_App/OE_library/LinkLibraries/SBJSON/SBJsonParser.m
+END
+SBJsonWriter.m
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/DigiMagiPad/!svn/ver/18/trunk/Publisher_App/Publisher_App/OE_library/LinkLibraries/SBJSON/SBJsonWriter.m
+END
+NSObject+SBJSON.h
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/DigiMagiPad/!svn/ver/18/trunk/Publisher_App/Publisher_App/OE_library/LinkLibraries/SBJSON/NSObject+SBJSON.h
+END
+NSString+SBJSON.h
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/DigiMagiPad/!svn/ver/18/trunk/Publisher_App/Publisher_App/OE_library/LinkLibraries/SBJSON/NSString+SBJSON.h
+END
+SBJSON.m
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/DigiMagiPad/!svn/ver/18/trunk/Publisher_App/Publisher_App/OE_library/LinkLibraries/SBJSON/SBJSON.m
+END
+NSObject+SBJSON.m
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/DigiMagiPad/!svn/ver/18/trunk/Publisher_App/Publisher_App/OE_library/LinkLibraries/SBJSON/NSObject+SBJSON.m
+END
+NSString+SBJSON.m
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/DigiMagiPad/!svn/ver/18/trunk/Publisher_App/Publisher_App/OE_library/LinkLibraries/SBJSON/NSString+SBJSON.m
+END
