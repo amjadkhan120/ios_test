@@ -13,12 +13,6 @@
 
 @interface DataModel : NSObject <ServerUpdateDelegate>
 
-@property(nonatomic,retain) NSManagedObjectContext *managedObjectContext;
-@property(nonatomic,retain) NSManagedObjectModel *managedObjectModel;
-@property(nonatomic,retain) NSPersistentStoreCoordinator *persistantStoreCoordinator;
-
-- (NSManagedObjectContext *)managedObjectContext;
-
 +(DataModel*)defaultManager;
 
 -(void)checkForUpdate;

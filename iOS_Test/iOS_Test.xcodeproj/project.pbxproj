@@ -29,9 +29,10 @@
 		4D3117D016CFCC7300964F3A /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3117CA16CFCC7300964F3A /* SBJsonWriter.m */; };
 		4D31181B16CFD7AE00964F3A /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4D31181916CFD7AE00964F3A /* DataModel.xcdatamodeld */; };
 		4D3D918A16D90B04009AD7AF /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D3D918916D90B04009AD7AF /* CoreData.framework */; };
-		4D3D919A16D93C99009AD7AF /* Base.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3D919916D93C99009AD7AF /* Base.m */; };
-		4DDA306716D8A13C0053FA7F /* My_Files.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA306616D8A13C0053FA7F /* My_Files.m */; };
+		4DD77E5516E64FF1001D857D /* Base.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD77E5416E64FF1001D857D /* Base.m */; };
 		4DDA306A16D8A1920053FA7F /* Content.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA306916D8A1920053FA7F /* Content.m */; };
+		BE666BD816DA7FDC0081F341 /* CoreDataHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = BE666BD716DA7FDC0081F341 /* CoreDataHandler.m */; };
+		BE666BDB16DA84D00081F341 /* My_Files.m in Sources */ = {isa = PBXBuildFile; fileRef = BE666BDA16DA84D00081F341 /* My_Files.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,12 +73,14 @@
 		4D3117CA16CFCC7300964F3A /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
 		4D31181A16CFD7AE00964F3A /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		4D3D918916D90B04009AD7AF /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		4D3D919816D93C99009AD7AF /* Base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Base.h; path = iOS_Test/Classes/CoreDataModel/Controller/Base.h; sourceTree = SOURCE_ROOT; };
-		4D3D919916D93C99009AD7AF /* Base.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Base.m; path = iOS_Test/Classes/CoreDataModel/Controller/Base.m; sourceTree = SOURCE_ROOT; };
-		4DDA306516D8A13C0053FA7F /* My_Files.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = My_Files.h; path = iOS_Test/Classes/CoreDataModel/Controller/My_Files.h; sourceTree = SOURCE_ROOT; };
-		4DDA306616D8A13C0053FA7F /* My_Files.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = My_Files.m; path = iOS_Test/Classes/CoreDataModel/Controller/My_Files.m; sourceTree = SOURCE_ROOT; };
+		4DD77E5316E64FF1001D857D /* Base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base.h; sourceTree = "<group>"; };
+		4DD77E5416E64FF1001D857D /* Base.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Base.m; sourceTree = "<group>"; };
 		4DDA306816D8A1920053FA7F /* Content.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Content.h; path = iOS_Test/Classes/CoreDataModel/Controller/Content.h; sourceTree = SOURCE_ROOT; };
 		4DDA306916D8A1920053FA7F /* Content.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Content.m; path = iOS_Test/Classes/CoreDataModel/Controller/Content.m; sourceTree = SOURCE_ROOT; };
+		BE666BD616DA7FDC0081F341 /* CoreDataHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataHandler.h; sourceTree = "<group>"; };
+		BE666BD716DA7FDC0081F341 /* CoreDataHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataHandler.m; sourceTree = "<group>"; };
+		BE666BD916DA84D00081F341 /* My_Files.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = My_Files.h; sourceTree = "<group>"; };
+		BE666BDA16DA84D00081F341 /* My_Files.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = My_Files.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +158,7 @@
 		4D3117AC16CFB39E00964F3A /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				BE666BD416DA7F040081F341 /* CoreDataHandler */,
 				4D31181716CFD78400964F3A /* CoreDataModel */,
 				4D3117BC16CFCC7200964F3A /* lib */,
 				4D3117B516CFB50500964F3A /* Communication */,
@@ -230,14 +234,23 @@
 		4D31181C16CFD7CA00964F3A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				4D3D919816D93C99009AD7AF /* Base.h */,
-				4D3D919916D93C99009AD7AF /* Base.m */,
-				4DDA306516D8A13C0053FA7F /* My_Files.h */,
-				4DDA306616D8A13C0053FA7F /* My_Files.m */,
 				4DDA306816D8A1920053FA7F /* Content.h */,
 				4DDA306916D8A1920053FA7F /* Content.m */,
+				BE666BD916DA84D00081F341 /* My_Files.h */,
+				BE666BDA16DA84D00081F341 /* My_Files.m */,
+				4DD77E5316E64FF1001D857D /* Base.h */,
+				4DD77E5416E64FF1001D857D /* Base.m */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		BE666BD416DA7F040081F341 /* CoreDataHandler */ = {
+			isa = PBXGroup;
+			children = (
+				BE666BD616DA7FDC0081F341 /* CoreDataHandler.h */,
+				BE666BD716DA7FDC0081F341 /* CoreDataHandler.m */,
+			);
+			name = CoreDataHandler;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -319,9 +332,10 @@
 				4D3117CF16CFCC7300964F3A /* SBJsonParser.m in Sources */,
 				4D3117D016CFCC7300964F3A /* SBJsonWriter.m in Sources */,
 				4D31181B16CFD7AE00964F3A /* DataModel.xcdatamodeld in Sources */,
-				4DDA306716D8A13C0053FA7F /* My_Files.m in Sources */,
 				4DDA306A16D8A1920053FA7F /* Content.m in Sources */,
-				4D3D919A16D93C99009AD7AF /* Base.m in Sources */,
+				BE666BD816DA7FDC0081F341 /* CoreDataHandler.m in Sources */,
+				BE666BDB16DA84D00081F341 /* My_Files.m in Sources */,
+				4DD77E5516E64FF1001D857D /* Base.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

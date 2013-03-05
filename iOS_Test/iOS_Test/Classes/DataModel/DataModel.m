@@ -11,15 +11,12 @@
 #import "Base.h"
 #import "My_Files.h"
 #import "Content.h"
-
+#import "AppDelegate.h"
+#import "CoreDataHandler.h"
 @implementation DataModel
 
 
 static DataModel *defaultManager = nil;
-
-@synthesize managedObjectContext;
-@synthesize managedObjectModel;
-@synthesize persistantStoreCoordinator;
 
 
 #pragma mark - Singleton Initilization -
@@ -98,41 +95,34 @@ static DataModel *defaultManager = nil;
 }
 
 -(void)saveData:(NSDictionary*)dataDic{
-    Base *_baseTable = [NSEntityDescription insertNewObjectForEntityForName:@"Base" inManagedObjectContext:[self managedObjectContext]];
     
-    // set properites
-    if([dataDic valueForKey:@"availableSpace"])
-        [_baseTable setAvailableSpace:[dataDic valueForKey:@"availableSpace"]];
-    if([dataDic valueForKey:@"last_rev_id"])
-        [_baseTable setLast_rev_id:[dataDic valueForKey:@"last_rev_id"]];
-    if([dataDic valueForKey:@"mode"])
-        [_baseTable setMode:[dataDic valueForKey:@"mode"]];
-    if([dataDic valueForKey:@"totalSpace"])
-        [_baseTable setTotalspace:[dataDic valueForKey:@"totalSpace"]];
+    /// Only Save This Data if the Revision Number is Differeent
+    [(AppDelegate *)[[UIApplication sharedApplication] delegate] deleteStore];
+
+    NSManagedObjectContext *context = (NSManagedObjectContext *)[(AppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
+
+    [Base addBaseObjectWithDictionary:dataDic];
+//    [My_Files addfilesWithDictionary:[dataDic objectForKey:@"my_files"] type:1];
+//    [My_Files addfilesWithDictionary:[dataDic objectForKey:@"shared_files"] type:2];
+    NSError *error;
+    if (![context save:&error]) {
+        [context reset];
+        NSLog(@"Data Not Saved Properly"); 
+    }
+    ////
+    // This is the test code to fetch the results ///
+    NSArray *arr = [CoreDataHandler getEntityFromDBWithName:@"Base"];
+
+
+    Base *base = [arr objectAtIndex:0];
     
-}
-
-
-#pragma mark - Core Data stack -
-
-
-// Returns the managed object context for the application.
-// If the context doesn't already exist, it is created and bound to the persistent store coordinator for the application.
-- (NSManagedObjectContext *)managedObjectContext
-{
-    if (managedObjectContext != nil) {
-        return managedObjectContext;
+   NSArray *files = [base.files allObjects];
+    for (My_Files *file in files) {
+        NSLog(@"file:Name %@",file.name);
+        NSArray *contents = [file.contents allObjects];
+        for(Content *cont in contents)
+            NSLog(@"content:Name %@",cont.name);
     }
     
-    NSPersistentStoreCoordinator *coordinator = [self persistantStoreCoordinator];
-    if (coordinator != nil) {
-        managedObjectContext = [[NSManagedObjectContext alloc] init];
-        [managedObjectContext setPersistentStoreCoordinator:coordinator];
-    }
-    return managedObjectContext;
 }
-
-
-
-
 @end

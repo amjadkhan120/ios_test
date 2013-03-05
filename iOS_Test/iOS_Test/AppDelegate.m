@@ -10,6 +10,8 @@
 
 #import "ViewController.h"
 #import "DataModel.h"
+#import "Base.h"
+#import "CoreDataHandler.h"
 
 @implementation AppDelegate
 
@@ -32,9 +34,8 @@
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
     
-    
+    [self managedObjectContext];
     [[DataModel defaultManager] checkForUpdate];
-    
     return YES;
 }
 
@@ -65,4 +66,69 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+
+-(void)deleteStore
+{
+    NSManagedObjectContext *context = [self managedObjectContext];
+    if (context) {
+        NSPersistentStore *store = [persistentStoreCoordinator.persistentStores objectAtIndex:0];
+        NSError *error;
+        NSURL *storeURL = store.URL;
+        [persistentStoreCoordinator removePersistentStore:store error:&error];
+        [[NSFileManager defaultManager] removeItemAtPath:storeURL.path error:&error];
+        managedObjectContext = nil;
+        persistentStoreCoordinator = nil;
+        managedObjectModel = nil;
+    }
+}
+
+- (NSString *)applicationDocumentsDirectory {
+	return [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+}
+
+- (NSManagedObjectContext *) managedObjectContext {
+	
+        if (managedObjectContext != nil) {
+            return managedObjectContext;
+        }
+        
+        NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
+        if (coordinator != nil) {
+            managedObjectContext = [[NSManagedObjectContext alloc] init];
+            [managedObjectContext setPersistentStoreCoordinator: coordinator];
+        }
+        return managedObjectContext;
+}
+
+- (NSManagedObjectModel *)managedObjectModel {
+	
+    if (managedObjectModel != nil) {
+        return managedObjectModel;
+    }
+    managedObjectModel = [[NSManagedObjectModel mergedModelFromBundles:nil] retain];
+    return managedObjectModel;
+}
+
+- (NSPersistentStoreCoordinator *)persistentStoreCoordinator {
+	
+    if (persistentStoreCoordinator != nil) {
+        return persistentStoreCoordinator;
+    }
+    NSURL *storeUrl = [NSURL fileURLWithPath: [[self applicationDocumentsDirectory] stringByAppendingPathComponent: @"DataModel.sqlite"]];
+	NSError *error = nil;
+    persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
+    if (![persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeUrl options:nil error:&error]) {
+        
+        NSFileManager *manager = [[NSFileManager alloc] init];
+            if ([manager removeItemAtURL:storeUrl error:&error])
+            {
+                
+                [persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeUrl options:nil error:&error];
+            }
+        
+        [manager release];
+    }
+
+    return persistentStoreCoordinator;
+}
 @end

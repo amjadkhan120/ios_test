@@ -7,13 +7,22 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreData/CoreData.h>
 
 @class ViewController;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
+{
+    
+	NSManagedObjectModel *managedObjectModel;
+    NSManagedObjectContext *managedObjectContext;    
+    NSPersistentStoreCoordinator *persistentStoreCoordinator;
+}
 
 @property (strong, nonatomic) UIWindow *window;
 
 @property (strong, nonatomic) ViewController *viewController;
+- (NSManagedObjectContext *) managedObjectContext;
+-(void)deleteStore;
 
 @end
